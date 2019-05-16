@@ -1,0 +1,13 @@
+.cat_link_container {
+}
+.cat_link_container a:hover {
+  color: darkgray;
+}
+.cat_link_container a:focus {
+  color: red;
+}
+.cat_link_container a:active {
+  color: orange;
+}
+.cat_link_container svg {
+}
