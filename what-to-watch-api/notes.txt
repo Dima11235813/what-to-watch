@@ -1,0 +1,6 @@
+npm install express fs request nodemon cron nodemailer
+npm install express fs request nodemon
+
+https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm
+
+chrome://inspect/#devices
