@@ -18,13 +18,13 @@ class NetflixCatItem extends React.Component {
     const { name, id } = this.props.catItem;
     const { isFav } = this.props;
     return (
-      <div
-        className={style.catLinkContainer}
-        onClick={() => {
-          this.saveAsFav(id);
-        }}
-      >
-        <div className={style.favIndicator}>
+      <div className={style.catLinkContainer}>
+        <div
+          className={style.favIndicator}
+          onClick={() => {
+            this.saveAsFav(id);
+          }}
+        >
           <FavIndicator isFav={isFav} />
         </div>
         <div className={style.catLink}>

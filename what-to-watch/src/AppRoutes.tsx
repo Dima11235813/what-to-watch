@@ -4,7 +4,7 @@ import { Route, Router, Switch } from "react-router";
 import { Header } from "./view/Header/Header";
 
 //Route Components
-import Main from "./view/Main";
+import NetflixCateogires from "./view/NetflixCategories/NetflixCategories";
 import ActorImage from "./view/ActorImage/ActorImage";
 
 import { CommonStore } from "./stores/CommonStore";
@@ -21,8 +21,18 @@ class AppRoutes extends Component<AppRouteProps> {
       <Router history={this.props.history}>
         <Header />
         <Switch>
-          <Route key="home" exact path="/" component={Main} />
-          <Route key="actorImage" exact path="/actorImage" component={ActorImage} />
+          <Route
+            key="netflixCategories"
+            exact
+            path="/netflixCategories"
+            component={NetflixCateogires}
+          />
+          <Route
+            key="actorImage"
+            exact
+            path="/actorImage"
+            component={ActorImage}
+          />
         </Switch>
       </Router>
     );

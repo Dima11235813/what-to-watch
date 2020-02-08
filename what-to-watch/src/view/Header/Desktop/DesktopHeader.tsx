@@ -48,7 +48,10 @@ const DesktopHeader = () => {
               <MenuIcon />
             </IconButton>
             <div className={classes.title}>
-              <NavLink to="/" activeClassName={styles.activeLink}>
+              <NavLink
+                to="/netflixCategories"
+                activeClassName={styles.activeLink}
+              >
                 <Typography gutterBottom={true} variant="h6">
                   <span className={styles.linkText}>
                     Define Netflix Categories

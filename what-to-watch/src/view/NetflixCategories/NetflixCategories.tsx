@@ -5,11 +5,12 @@ import { RouteComponentProps } from "react-router";
 import {
   SearchByWatchEntityParams,
   SearchByNameParams
-} from "./models/paramTypes";
-import { UiPreferenceStore } from "../stores/UiPreferenceStore";
-import { logToConsole } from "../utils/logger";
-import TextInput from "../components/shared/TextInput/TextInput";
-import NetflixByCategory from "../components/NetflixByCategory/NetflixByCategory";
+} from "../models/paramTypes";
+import styles from './NetflixCategories.module.scss'
+import { UiPreferenceStore } from "../../stores/UiPreferenceStore";
+import { logToConsole } from "../../utils/logger";
+import TextInput from "../../components/shared/TextInput/TextInput";
+import NetflixByCategory from "../../components/NetflixByCategory/NetflixByCategory";
 
 type Params = SearchByNameParams | SearchByWatchEntityParams;
 
@@ -24,7 +25,7 @@ interface Props {
   routerStore?: RouterStore;
 }
 
-class Main extends Component<Props & RouteComponentProps<Params>, State> {
+class NetflixCategories extends Component<Props & RouteComponentProps<Params>, State> {
   constructor(props: Readonly<Props & RouteComponentProps<Params>>) {
     super(props);
     this.state = {
@@ -34,7 +35,7 @@ class Main extends Component<Props & RouteComponentProps<Params>, State> {
     };
   }
   onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    logToConsole(`Main On Change Event Fired with Value: ${e.target.value}`);
+    logToConsole(`NetflixCateogires On Change Event Fired with Value: ${e.target.value}`);
     const name: any = e.target.name;
     if (Object.keys(this.state).includes(name)) {
       this.setState({ [name]: e.target.value } as Pick<State, keyof State>);
@@ -45,10 +46,10 @@ class Main extends Component<Props & RouteComponentProps<Params>, State> {
   ): void {}
 
   render() {
-    logToConsole(`Main component render`);
+    logToConsole(`NetflixCateogires component render`);
     const { searchText } = this.state;
     return (
-      <div>
+      <div className={styles.categoryPageContainer}>
         <TextInput
           type="text"
           name="searchText"
@@ -63,4 +64,4 @@ class Main extends Component<Props & RouteComponentProps<Params>, State> {
   }
 }
 
-export default inject("uiPreferenceStore", "routerStore")(observer(Main));
+export default inject("uiPreferenceStore", "routerStore")(observer(NetflixCategories));
