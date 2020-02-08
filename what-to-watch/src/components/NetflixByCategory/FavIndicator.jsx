@@ -1,5 +1,6 @@
 import React from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import "./catItemStyles.css";
 
 const FavIndicator = props => {
@@ -9,10 +10,7 @@ const FavIndicator = props => {
   };
   const { isFav } = props;
   return (
-    <i
-      style={favIndicatorStyle}
-      className={`${isFav ? "fas" : "far"} fa-star fa-pull-left`}
-    />
+    <FontAwesomeIcon icon={faStar} inverse={isFav} style={favIndicatorStyle}/>
   );
 };
 

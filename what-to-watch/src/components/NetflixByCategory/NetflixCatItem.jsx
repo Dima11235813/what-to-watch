@@ -2,13 +2,10 @@ import React from "react";
 
 import "./catItemStyles.css";
 import FavIndicator from "./FavIndicator";
+import { logToConsole } from "../../utils/logger";
 class NetflixCatItem extends React.Component {
   constructor(props) {
     super(props);
-    const favStatus = localStorage.getItem(this.props.catItem.id);
-    this.state = {
-      isFav: favStatus ? favStatus : false
-    };
   }
   url = "https://www.netflix.com/browse/genre/";
   netflixCatItemStyle = {
@@ -20,14 +17,13 @@ class NetflixCatItem extends React.Component {
     padding: "1rem"
   };
   saveAsFav = id => {
-    localStorage.setItem(id, !this.state.isFav);
-    this.setState({
-      isFav: !this.state.isFav
-    });
+    this.props.saveFavStatus(id, !this.props.isFav)
+    this.props.resortCatItems();
   };
   render() {
-    const { name, id } = this.props.catItem;
-    const { isFav } = this.state;
+    logToConsole(`NetflixCatItem render with props, :`)
+    const { name, id} = this.props.catItem;
+    const {isFav} = this.props
     return (
       <div style={this.netflixCatItemStyle} className="cat_link_container">
         <div
@@ -38,9 +34,7 @@ class NetflixCatItem extends React.Component {
         >
           <FavIndicator isFav={isFav} />
         </div>
-        <a href={`${this.url}${id}`}>
-          {name}
-        </a>
+        <a href={`${this.url}${id}`}>{name}</a>
       </div>
     );
   }

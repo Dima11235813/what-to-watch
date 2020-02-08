@@ -1,4 +1,8 @@
-export const netflixCatData = [
+export interface NetflixCatItem {
+    name: string;
+    id: number;
+}
+export const netflixCatData: NetflixCatItem[] = [
     {name: "Action & Adventure",id: 1365},
 
 

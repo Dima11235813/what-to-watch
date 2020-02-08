@@ -38,11 +38,11 @@ class Main extends Component<Props & RouteComponentProps<Params>, State> {
   }
   onChange = (e: ChangeEvent<HTMLInputElement>) => {
     logToConsole(`Main On Change Event Fired with Value: ${e.target.value}`);
-    const name: any = e.target.name
-    if(Object.keys(this.state).includes(name)){
-        this.setState({ [name]: e.target.value } as Pick<State, keyof State>);
+    const name: any = e.target.name;
+    if (Object.keys(this.state).includes(name)) {
+      this.setState({ [name]: e.target.value } as Pick<State, keyof State>);
     }
-  }
+  };
   componentDidUpdate(
     prevProps: Readonly<Props & RouteComponentProps<Params>>
   ): void {}
@@ -53,16 +53,22 @@ class Main extends Component<Props & RouteComponentProps<Params>, State> {
     return (
       <div>
         <Header />
-        <TextInput
-          type="text"
-          name="searchText"
-          disabled={false}
-          value={searchText}
-          onChange={this.onChange}
-          minLength={2}
-        />
-        <PrimaryButton {...buttonProps}>Search</PrimaryButton>
-        <NetflixByCategory filter={this.state.searchText}/>
+        <div>
+          Search Container
+          <PrimaryButton {...buttonProps}>Search</PrimaryButton>
+        </div>
+        <div>
+          Filter Container
+          <TextInput
+            type="text"
+            name="searchText"
+            disabled={false}
+            value={searchText}
+            onChange={this.onChange}
+            minLength={2}
+          />
+          <NetflixByCategory filter={this.state.searchText} />
+        </div>
       </div>
     );
   }

@@ -5,7 +5,7 @@ import { logToConsole } from "../utils/logger";
 
 export const Header = () => {
     logToConsole('Header render called')
-    return <div>Header</div>
+    return <div></div>
 //   let anchorEl: HTMLAnchorElement;
 //   const handleClick = () => {};
 //   const handleClose = () => {};
