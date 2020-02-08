@@ -15,11 +15,6 @@ class NetflixCatItem extends React.Component {
     backgroundColor: "grey",
     display: "inline-block"
   };
-  linkStyle = {
-    // color: "white",
-    // padding: '1rem',
-    // textDecoration: 'none'
-  };
   favIndicatorStyle = {
     cursor: "pointer",
     padding: "1rem"
@@ -43,7 +38,7 @@ class NetflixCatItem extends React.Component {
         >
           <FavIndicator isFav={isFav} />
         </div>
-        <a style={this.linkStyle} href={`${this.url}${id}`}>
+        <a href={`${this.url}${id}`}>
           {name}
         </a>
       </div>

@@ -1,0 +1,43 @@
+@import '../../../variables';
+
+.TextInput {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    color: #414042;
+    font: $drop-down-text-small;
+    padding: 15px;
+
+    &:disabled {
+      background-color: rgb(235, 235, 228);
+    }
+
+    @include breakpoint(lg) {
+      font: $drop-down-text-big;
+      padding: 18px 20px;
+    }
+  }
+
+  .Exception {
+    position: absolute;
+    bottom: -29px;
+    font-family: "Helvetica", sans-serif;
+    font-size: 12px;
+    color: red;
+    white-space: nowrap;
+  }
+}
+
+::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}

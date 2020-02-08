@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+.PrimaryButton {
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    border-radius: 4px !important;
+    font: bold 20px/20px "Helvetica", sans-serif !important;
+    color: $primary-blue !important;
+    text-align: center !important;
+    text-transform: none !important;
+    background-color: $secondary-blue !important;
+    border: 2px solid $primary-blue !important;
+  
+    &:hover {
+      background-color: $primary-tan !important;
+      border: 2px solid $primary-light-brown !important;
+    }
+  
+    &:disabled {
+      background-color: grey !important;
+      border: 2px solid brown !important;
+      opacity: 0.5 !important;
+    }
+  }
