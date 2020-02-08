@@ -24,9 +24,9 @@ class App extends Component<InjectedProps & Partial<WithWidth>> {
   render() {
     return (
       <Provider {...store}>
-        <>
+        <div>
           <AppRoutes history={history} />
-        </>
+        </div>
       </Provider>
     );
   }

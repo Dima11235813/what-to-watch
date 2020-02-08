@@ -1,34 +1,52 @@
 @import "../../../variables.scss";
 
-.Header {
-  width: inherit;
-  max-width: inherit;
-  height: $headerHeight;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $primary-light-brown;
-  border-top: 7px solid $primary-border;
-  box-shadow: $box-shadow;
-
-  @media print {
-    display: none !important;
-  }
-
-  div {
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  .Logo {
-    margin-left: 85px;
-  }
-
-  .LogOut {
-  }
-
-  .Search {
+.appBarContainer{
+  .title{
+    &:hover{
+      color: $ternary-blue;
+    }
+    .activeLink{
+      color: $primary-tan;
+      &a{
+        text-decoration: none !important;
+      }
+      .linkText{
+        // color: $primary-tan;
+        color: green;
+      }
+    }
   }
 }
+
+// .Header {
+//   width: inherit;
+//   max-width: inherit;
+//   height: $headerHeight;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: center;
+//   background-color: $primary-light-brown;
+//   border-top: 7px solid $primary-border;
+//   box-shadow: $box-shadow;
+
+//   @media print {
+//     display: none !important;
+//   }
+
+//   div {
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   .Logo {
+//     margin-left: 85px;
+//   }
+
+//   .LogOut {
+//   }
+
+//   .Search {
+//   }
+// }

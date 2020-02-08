@@ -32,9 +32,10 @@ const useStyles = makeStyles(theme => ({
 
 // class DesktopHeader extends Component<Props> {
 const DesktopHeader = () => {
-    logToConsole(`Desktop Header render`);
-    const classes = useStyles();
-    return (
+  logToConsole(`Desktop Header render`);
+  const classes = useStyles();
+  return (
+    <div className={styles.appBarContainer}>
       <div className={classes.root}>
         <AppBar>
           <Toolbar>
@@ -46,16 +47,22 @@ const DesktopHeader = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              <NavLink to="/" activeClassName={styles.SelectedLink}>
-                Define Netflix Categories
+            <div className={classes.title}>
+              <NavLink to="/" activeClassName={styles.activeLink}>
+                <Typography gutterBottom={true} variant="h6">
+                  <span className={styles.linkText}>
+                    Define Netflix Categories
+                  </span>
+                </Typography>
               </NavLink>
-            </Typography>
-            <Typography variant="h6" className={classes.title}>
-              <NavLink to="/actorImage" activeClassName={styles.SelectedLink}>
-                Actor Related Image
+            </div>
+            <div className={classes.title}>
+              <NavLink to="/actorImage" activeClassName={styles.activeLink}>
+                <Typography gutterBottom={true} variant="h6">
+                  <span className={styles.linkText}>Actor Related Image</span>
+                </Typography>
               </NavLink>
-            </Typography>
+            </div>
             <PrimaryButton {...buttonProps} color="inherit">
               Login
             </PrimaryButton>
@@ -68,6 +75,7 @@ const DesktopHeader = () => {
           <a className={styles.LogOut}>Log Out</a>
         </div> */}
       </div>
-    )
-}
-export default DesktopHeader
+    </div>
+  );
+};
+export default DesktopHeader;

@@ -12,6 +12,7 @@
     font-size: 1rem;
     .catText{
       color: black;
+      text-decoration: none;
       &:hover{
         color: $primary-light-brown;
       }
