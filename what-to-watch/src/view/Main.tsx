@@ -8,9 +8,6 @@ import {
 } from "./models/paramTypes";
 import { UiPreferenceStore } from "../stores/UiPreferenceStore";
 import { logToConsole } from "../utils/logger";
-import { PrimaryButton } from "../components/shared/PrimaryButton/PrimaryButton";
-import { Header } from "./Header";
-import { buttonProps } from "./cssInJs/buttonProps";
 import TextInput from "../components/shared/TextInput/TextInput";
 import NetflixByCategory from "../components/NetflixByCategory/NetflixByCategory";
 
@@ -52,23 +49,15 @@ class Main extends Component<Props & RouteComponentProps<Params>, State> {
     const { searchText } = this.state;
     return (
       <div>
-        <Header />
-        <div>
-          Search Container
-          <PrimaryButton {...buttonProps}>Search</PrimaryButton>
-        </div>
-        <div>
-          Filter Container
-          <TextInput
-            type="text"
-            name="searchText"
-            disabled={false}
-            value={searchText}
-            onChange={this.onChange}
-            minLength={2}
-          />
-          <NetflixByCategory filter={this.state.searchText} />
-        </div>
+        <TextInput
+          type="text"
+          name="searchText"
+          disabled={false}
+          value={searchText}
+          onChange={this.onChange}
+          minLength={2}
+        />
+        <NetflixByCategory filter={this.state.searchText} />
       </div>
     );
   }

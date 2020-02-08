@@ -1,11 +1,25 @@
-import React, { useRef } from "react";
-import { Menu, MenuItem } from "material-ui";
-import { PrimaryButton } from "../components/shared/PrimaryButton/PrimaryButton";
-import { logToConsole } from "../utils/logger";
+import React, { Component } from "react";
+// import { Menu, MenuItem } from "material-ui";
+// import { PrimaryButton } from "../../components/shared/PrimaryButton/PrimaryButton";
+// import { logToConsole } from "../../utils/logger";
+import { Desktop, Mobile } from '../../App';
+import DesktopHeader from './Desktop/DesktopHeader';
+import MobileHeader from './Mobile/MobileHeader';
 
-export const Header = () => {
-    logToConsole('Header render called')
-    return <div></div>
+export class Header extends Component {
+  render() {
+    return (
+      <>
+        <Desktop>
+          <DesktopHeader/>
+        </Desktop>
+        <Mobile>
+          <MobileHeader/>
+        </Mobile>
+      </>
+    );
+  }
+}    
 //   let anchorEl: HTMLAnchorElement;
 //   const handleClick = () => {};
 //   const handleClose = () => {};
@@ -31,4 +45,4 @@ export const Header = () => {
 //       </Menu>
 //     </header>
 //   );
-};
+

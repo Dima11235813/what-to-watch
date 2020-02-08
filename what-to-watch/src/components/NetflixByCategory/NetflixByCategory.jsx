@@ -14,11 +14,11 @@ class NetflixByCategory extends React.Component {
   }
   resortCatItems = () => {
     let newState = this.favLookupFromLocalStorage.getSortedItems();
-    console.log(newState)
+    logToConsole(newState)
     this.setState({ netflixCatData: newState });
   };
   saveFavStatus = (id, status) => {
-    console.log(`Setting id: ${id} to status ${status}`)
+    logToConsole(`Setting id: ${id} to status ${status}`)
     this.favLookupFromLocalStorage.setFavStatus(id, status)
     this.resortCatItems()
   }
@@ -29,7 +29,7 @@ class NetflixByCategory extends React.Component {
     marginTop: "5rem"
   };
   render() {
-    console.log(`NetflixByCategory render`);
+    logToConsole(`NetflixByCategory render`);
     const filter = this.props.filter.toLowerCase();
     return (
       <div className="cat_items_list" style={this.netflixByCategoryStyle}>

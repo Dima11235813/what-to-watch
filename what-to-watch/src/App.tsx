@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { createBrowserHistory } from "history";
 import { syncHistoryWithStore } from "mobx-react-router";
-import { Provider } from "mobx-react";
+import { Provider, inject, observer } from "mobx-react";
 import Responsive from "react-responsive";
 import { store } from "./stores";
 import { Route, Router, Switch } from "react-router";
@@ -9,7 +9,8 @@ import { WithWidth } from "@material-ui/core";
 import withMobileDialog, {
   InjectedProps
 } from "@material-ui/core/withMobileDialog";
-import Main from "./view/Main";
+import AppRoutes from "./AppRoutes";
+import { Header } from "./view/Header/Header";
 
 export const Desktop = (props: any) => (
   <Responsive {...props} minWidth={1024} />
@@ -24,11 +25,7 @@ class App extends Component<InjectedProps & Partial<WithWidth>> {
     return (
       <Provider {...store}>
         <>
-          <Router history={history}>
-            <Switch>
-              <Route key="home" path="" component={Main} />
-            </Switch>
-          </Router>
+          <AppRoutes history={history} />
         </>
       </Provider>
     );

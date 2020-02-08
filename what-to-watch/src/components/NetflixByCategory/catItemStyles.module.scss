@@ -1,0 +1,27 @@
+@import '../../variables.scss';
+
+.catLinkContainer {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  background-color: $primary-blue;
+  border: 1px $primary-border solid;
+  margin: 1rem;
+  
+  .catLink{
+    padding: 1rem;
+    font-size: 1rem;
+    .catText{
+      color: black;
+      &:hover{
+        color: $primary-light-brown;
+      }
+      &:focus{
+        color: $secondary-blue;
+      }
+    }
+  }
+  .favIndicator{
+    cursor: pointer;
+    padding: 1rem;
+  }
+}

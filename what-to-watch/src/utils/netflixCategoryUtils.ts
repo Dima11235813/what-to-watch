@@ -1,4 +1,5 @@
 import { netflixCatData, NetflixCatItem } from "../shared/netflixCategoryData"
+import { logToConsole } from "./logger"
 
 interface IDictionary {
     [id: string]: boolean;
@@ -37,7 +38,7 @@ export class FavLookupFromLocalStorage {
     getFavStatus(id: number): boolean {
         if (id in this.favLookUp) {
             const status = this.favLookUp[id]
-            console.log(`Return fav status of id: ${id} status: ${this.favLookUp[id]}`)
+            logToConsole(`Return fav status of id: ${id} status: ${this.favLookUp[id]}`)
 
             return status
         }

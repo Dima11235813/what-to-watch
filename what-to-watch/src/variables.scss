@@ -1,6 +1,6 @@
 //https://color.adobe.com/create
 //complementary
-
+$primary-border: black;
 $primary-blue: #444ab3;
 $secondary-blue: #c4c7ff;
 $ternary-blue: #abafff;
@@ -10,6 +10,8 @@ $primary-tan: #ffeeab;
 //TEXT INPUT
 $drop-down-text-big: 20px/24px "Helvetica", sans-serif;
 $drop-down-text-small: 16px/20px "FSHumana", sans-serif;
+
+$box-shadow: 1px 8px 7px 0 rgba(0, 0, 0, 0.1);
 
 @mixin breakpoint($class) {
   @if $class == sm {
@@ -25,3 +27,6 @@ $drop-down-text-small: 16px/20px "FSHumana", sans-serif;
     // @warn "Breakpoint mixin supports: xs, sm, md, lg";
   }
 }
+
+$headerHeightMobile: 100px;
+$headerHeight: 100px;

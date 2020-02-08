@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./catItemStyles.css";
+import style from "./catItemStyles.module.scss";
 import FavIndicator from "./FavIndicator";
 import { logToConsole } from "../../utils/logger";
 class NetflixCatItem extends React.Component {
@@ -8,33 +8,30 @@ class NetflixCatItem extends React.Component {
     super(props);
   }
   url = "https://www.netflix.com/browse/genre/";
-  netflixCatItemStyle = {
-    backgroundColor: "grey",
-    display: "inline-block"
-  };
-  favIndicatorStyle = {
-    cursor: "pointer",
-    padding: "1rem"
-  };
+
   saveAsFav = id => {
-    this.props.saveFavStatus(id, !this.props.isFav)
+    this.props.saveFavStatus(id, !this.props.isFav);
     this.props.resortCatItems();
   };
   render() {
-    logToConsole(`NetflixCatItem render with props, :`)
-    const { name, id} = this.props.catItem;
-    const {isFav} = this.props
+    logToConsole(`NetflixCatItem render with props, :`);
+    const { name, id } = this.props.catItem;
+    const { isFav } = this.props;
     return (
-      <div style={this.netflixCatItemStyle} className="cat_link_container">
-        <div
-          onClick={() => {
-            this.saveAsFav(id);
-          }}
-          className="fav_indicator_wrapper"
-        >
+      <div
+        className={style.catLinkContainer}
+        onClick={() => {
+          this.saveAsFav(id);
+        }}
+      >
+        <div className={style.favIndicator}>
           <FavIndicator isFav={isFav} />
         </div>
-        <a href={`${this.url}${id}`}>{name}</a>
+        <div className={style.catLink}>
+          <a className={style.catText} href={`${this.url}${id}`}>
+            {name}
+          </a>
+        </div>
       </div>
     );
   }
