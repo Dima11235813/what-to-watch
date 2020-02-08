@@ -5,7 +5,7 @@ function fetchActorData(url) {
   return new Promise((resolve, reject) => {
     request(url, (err, res, body) => {
       if (!err && res.statusCode == 200) {
-        actorPageDataServiceHandler.setupHandler(body, resolve)
+        actorPageDataServiceHandler.setupHandler(body, resolve, url)
       } else {
         reject(err);
       }

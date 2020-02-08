@@ -1,5 +1,7 @@
 var htmlparser = require("htmlparser");
 
+let pageBodyCache = {};
+
 module.exports = (function() {
   let data;
   let analytics;
@@ -15,18 +17,29 @@ module.exports = (function() {
       countOfHiddenImages: 0
     };
   };
-  const setupHandler = (body, resolve) => {
-    resetData();
-    var handler = new htmlparser.DefaultHandler((error, dom) => {
-      if (error) {
-        console.log(`Pasing failure, error: ${error}`);
-      } else {
-        returnData(dom);
-        resolve({ ...data, ...analytics });
-      }
-    });
-    var parser = new htmlparser.Parser(handler);
-    parser.parseComplete(body);
+  const setupHandler = (body, resolve, url) => {
+    if (pageBodyCache[url]) {
+      console.log(`
+      REQUEST REPONSE IN CACHE 
+      URL: ${url}
+      `);
+      console.log(pageBodyCache[url]);
+      resolve(pageBodyCache[url]);
+    } else {
+      resetData();
+      var handler = new htmlparser.DefaultHandler((error, dom) => {
+        if (error) {
+          console.log(`Pasing failure, error: ${error}`);
+        } else {
+          returnData(dom);
+          let responseObj = { ...data, ...analytics };
+          pageBodyCache[url] = responseObj;
+          resolve(responseObj);
+        }
+      });
+      var parser = new htmlparser.Parser(handler);
+      parser.parseComplete(body);
+    }
   };
   // sys.puts(sys.inspect(handler.dom, false, null));
 
