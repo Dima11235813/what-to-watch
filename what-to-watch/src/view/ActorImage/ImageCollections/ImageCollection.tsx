@@ -2,10 +2,11 @@ import React, { Component, ChangeEvent } from "react";
 import { inject, observer } from "mobx-react";
 import { logToConsole, logObjToConsole } from "../../../utils/logger";
 import { ActorStore } from "../../../stores/ActorStore";
+import styles from './ImageCollection.module.scss'
 
 const checkIfArray = (array: any) => Array.isArray(array);
 let countOfImages = 0;
-const arrayOfIndexImageToShow = [4, 5, 6];
+const arrayOfIndexImageToShow = [4, 5];
 
 interface ImageCollectionProps {
   actorStore?: ActorStore;
@@ -23,15 +24,21 @@ class ImageCollection extends Component<ImageCollectionProps> {
     if (!pageData) {
       return <div>Spinner</div>;
     }
-    return pageData.map((img: any, index: number) => {
-      countOfImages += 1;
-      if (arrayOfIndexImageToShow.indexOf(index) > -1)
-        return (
-          <div key={`${countOfImages}_image`}>
-            <img src={img.src}></img>
-          </div>
-        );
-    });
+    return (
+     <div className={styles.imageCollectionContainer}>
+      {
+       pageData.map((img: any, index: number) => {
+         countOfImages += 1;
+         if (arrayOfIndexImageToShow.indexOf(index) > -1)
+           return (
+             <div className={styles.imageItem} key={`${countOfImages}_image`}>
+               <img src={img.src}></img>
+             </div>
+           );
+       })
+      }
+    </div>
+    )
   }
 }
 

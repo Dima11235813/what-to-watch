@@ -9,6 +9,7 @@ import ActorImage from "./view/ActorImage/ActorImage";
 
 import { CommonStore } from "./stores/CommonStore";
 import { RouterStore } from "mobx-react-router";
+import styles from "./App.module.scss";
 
 interface AppRouteProps extends CommonStore {
   routerStore?: RouterStore;
@@ -19,6 +20,7 @@ class AppRoutes extends Component<AppRouteProps> {
   render() {
     return (
       <Router history={this.props.history}>
+        <div className={styles.appContainer}></div>
         <Header />
         <Switch>
           <Route
