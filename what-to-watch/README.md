@@ -1,3 +1,9 @@
+# What to Watch
+
+## Goal 
+
+Entertainment info but through new UIs and functionality.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
